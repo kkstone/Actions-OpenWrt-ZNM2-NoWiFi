@@ -23,8 +23,8 @@ on:
     - cron: 0 8 * * 1
 
 env:
-  REPO_URL: https://github.com/King-Of-Knights/openwrt-6.x
-  REPO_BRANCH: main
+  REPO_URL: https://github.com/LiBwrt-op/openwrt-6.x
+  REPO_BRANCH: openwrt-24.10
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -91,7 +91,7 @@ jobs:
       uses: klever1988/cachewrtbuild@main
       with:
         ccache: 'true'
-        mixkey: 'openwrt6-cortexa53-znm2'
+        mixkey: 'openwrt6-cortexa53-znm2-breeze'
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
@@ -178,7 +178,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=ZNM2-NoWiFi-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        echo "release_tag=ZNM2-NoWiFi-Breeze-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
