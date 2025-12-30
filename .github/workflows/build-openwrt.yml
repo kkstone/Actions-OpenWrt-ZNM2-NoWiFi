@@ -101,7 +101,9 @@ jobs:
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
-        sed -i 's/PROVIDES:=ca-certs/PROVIDES:=@ca-certs/' package/system/ca-certificates/Makefile
+        wget https://patch-diff.githubusercontent.com/raw/openwrt/openwrt/pull/21288.patch
+        git apply 21288.patch
+        rm -rf 21288.patch
         $GITHUB_WORKSPACE/$DIY_P1_SH
    
     - name: Update feeds
