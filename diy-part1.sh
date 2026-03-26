@@ -12,7 +12,7 @@
 # Uncomment a feed source
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-sed -i '/TARGET_CFLAGS :=/ s/$/ -U_FORTIFY_SOURCE/' package/libs/mbedtls/Makefile
+# sed -i '/TARGET_CFLAGS :=/ s/$/ -U_FORTIFY_SOURCE/' package/libs/mbedtls/Makefile
 
 cd package
 # git clone https://github.com/xiaorouji/openwrt-passwall-packages
